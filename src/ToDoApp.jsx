@@ -48,10 +48,12 @@ const ToDoApp = () => {
           setTask(event.target.value);
         }}
       />
-      <button onClick={addTask}>AddTask</button>
-      <h2>MyTasks</h2>
+      <button onClick={addTask} className="btn btn-primary">
+        AddTask
+      </button>
+      <h2 className="bg-primary">MyTasks</h2>
       {taskList.length === 0 ? (
-        <p>No Tasks Found</p>
+        <p className="bg-danger">No Tasks Found</p>
       ) : (
         <ul className={styles.list}>
           {taskList.map((task, index) => (
