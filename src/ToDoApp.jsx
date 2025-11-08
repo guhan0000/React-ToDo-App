@@ -38,31 +38,44 @@ const ToDoApp = () => {
   }
 
   return (
-    <div>
-      <h2>To do App</h2>
+    <div className={`container p-5 bg-dark text-white${styles.list}`}>
+      <h2 className="text-center text-white">To do App</h2>
       <input
         type="text"
         placeholder="Enter Task"
+        className="m-5"
         value={task}
         onChange={(event) => {
           setTask(event.target.value);
         }}
       />
-      <button onClick={addTask} className="btn btn-primary">
+      <button onClick={addTask} className="btn btn-success">
         AddTask
       </button>
-      <h2 className="bg-primary">MyTasks</h2>
+      <h2 className="text-white ms-5">MyTasks</h2>
       {taskList.length === 0 ? (
-        <p className="bg-danger">No Tasks Found</p>
+        <p className="text-danger ms-5">No Tasks Found</p>
       ) : (
-        <ul className={styles.list}>
+        <ul>
           {taskList.map((task, index) => (
             <li
               key={index}
-              className={checkedList.includes(index) ? styles.checked : ""}
+              className={`${
+                checkedList.includes(index) ? styles.checked : styles.normal
+              } text-white lead ms-2`}
+              style={{
+                listStyle: "none",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                width: "200px", // adjust width as per your layout
+                marginBottom: "10px",
+                textAlign: "left",
+              }}
             >
               <input
                 type="checkbox"
+                className="form-check-input large-checkbox m-2"
                 checked={checkedList.includes(index)}
                 onChange={() => {
                   toggleCheckBox(index);
@@ -70,8 +83,14 @@ const ToDoApp = () => {
               ></input>
               {task}
               <FontAwesomeIcon
+                className=""
                 icon={faCircleXmark}
-                style={{ color: "red" }}
+                style={{
+                  color: "red",
+                  fontSize: "20px",
+                  left: "150px",
+                  position: "relative",
+                }}
                 onClick={() => {
                   removeTask(index);
                 }}
@@ -86,3 +105,15 @@ const ToDoApp = () => {
 };
 
 export default ToDoApp;
+
+// import React from "react";
+
+// const ToDoApp = () => {
+//   return (
+//     <div>
+//       <button className="btn btn-secondary">Click</button>
+//     </div>
+//   );
+// };
+
+// export default ToDoApp;
