@@ -16,11 +16,11 @@ const ToDoApp = () => {
     setTaskList([...taskList, task]);
     setTask("");
   }
-  function displayTask() {
-    taskList.map((task) => {
-      console.log(task);
-    });
-  }
+  // function displayTask() {
+  //   taskList.map((task) => {
+  //     console.log(task);
+  //   });
+  // }
   function removeTask(index) {
     const myTaskList = [...taskList];
     myTaskList.splice(index, 1);
