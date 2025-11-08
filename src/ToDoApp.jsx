@@ -70,7 +70,6 @@ const ToDoApp = () => {
                 justifyContent: "space-between",
                 width: "200px", // adjust width as per your layout
                 marginBottom: "10px",
-                textAlign: "left",
               }}
             >
               <input
